@@ -1,0 +1,18 @@
+<h2>Hier sind deine aktuellen Aufgaben:</h2>
+
+<ul>
+  <li *ngFor="let item of items | async">
+    <span [ngClass]="{'complete': item.completed}"><input type="checkbox" class="form-check-input" [(ngModel)]="item.completed"> {{ item.titel }}</span>
+    <button (click)="deleteItem(item.$key)" class="btn btn-outline-danger">x</button>
+  </li>
+</ul>
+
+<h3>Neue Aufgabe hinzufügen:</h3>
+<form #aufgabenForm="ngForm" (ngSubmit)="saveItem(neueAufgabe.value); neueAufgabe.value = ''">
+  <div class="row">
+    <div class="col-sm">
+      <input class="form-control" type="text" #neueAufgabe required>
+      <button type="submit" class="form-control btn" [disabled]="!aufgabenForm.form.valid">Speichern</button>
+    </div>
+  </div>
+</form>
