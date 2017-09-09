@@ -11,17 +11,22 @@ import { AufgabenService } from './aufgaben/aufgaben.service';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { AufgabenComponent } from './aufgaben/aufgaben.component';
+import { LoginComponent } from './login/login.component';
+
+import { AppRoutingModule } from './app-routes.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    AufgabenComponent
+    AufgabenComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    AppRoutingModule
   ],
   providers: [
     AuthGuard,

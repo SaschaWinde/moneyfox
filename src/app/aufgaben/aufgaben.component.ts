@@ -12,7 +12,6 @@ export class AufgabenComponent implements OnInit {
   items: FirebaseListObservable<any>;
   constructor(db: AngularFireDatabase) {
     this.items = db.list('/items');
-    this.items.push({ titel: 'InitAufgabe', completed: false });
   }
 
   deleteItem(key: string) {
